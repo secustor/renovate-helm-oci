@@ -1,0 +1,8 @@
+# Default values for library.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+exports:
+  defaults:
+    service:
+      type: ClusterIP
+      port: 9090

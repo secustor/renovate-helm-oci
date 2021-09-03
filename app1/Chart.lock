@@ -1,0 +1,6 @@
+dependencies:
+- name: library
+  repository: oci://ghcr.io/ankitabhopatkar13/library
+  version: 0.1.0
+digest: sha256:33a5e9a93967f7b490549fd4d8072ff03a8df39618b828179937c902bb31325b
+generated: "2021-09-03T13:04:31.875775+02:00"
