@@ -1,106 +1,13 @@
-# helm-values-issue
+# renovate-helm-oci
 
-`$ helm upgrade --install umbrella umbrella --debug --dry-run`
+There is a library chart which acts as a template chart for app1 and app2.
 
-Output: App chart values take precedence and ports are set correctly -
+In the [Chart.yaml](https://github.com/ankitabhopatkar13/renovate-helm-oci/blob/main/app1/Chart.yaml#L26) of app1, I have added a dependency pointing to the OCI registry of Github and on my local when I perform a login to that registry, I am able to do a `helm dependency update` which essentially pulls from the Github package registry.
 
-```
-MANIFEST:
----
-# Source: umbrella/charts/app1/templates/service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: umbrella-app1
-  labels:
-    helm.sh/chart: app1-0.1.0
-    app.kubernetes.io/name: app1
-    app.kubernetes.io/instance: umbrella
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-spec:
-  type: ClusterIP
-  ports:
-    - port: 1234
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    app.kubernetes.io/name: app1
-    app.kubernetes.io/instance: umbrella
----
-# Source: umbrella/charts/app2/templates/service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: umbrella-app2
-  labels:
-    helm.sh/chart: app2-0.1.0
-    app.kubernetes.io/name: app2
-    app.kubernetes.io/instance: umbrella
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-spec:
-  type: ClusterIP
-  ports:
-    - port: 8080
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    app.kubernetes.io/name: app2
-    app.kubernetes.io/instance: umbrella
-```
-    
-    
-`$ helm upgrade --install umbrella umbrella --debug --dry-run --values umbrella/values.yaml`
-
-Output: Library chart values take precedence and port is set to library default 9090 (which seems like a bug to me)
+When I am trying to run renovate on app1, app2 helm charts, renovate fails with the error - 
 
 ```
-MANIFEST:
----
-# Source: umbrella/charts/app1/templates/service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: umbrella-app1
-  labels:
-    helm.sh/chart: app1-0.1.0
-    app.kubernetes.io/name: app1
-    app.kubernetes.io/instance: umbrella
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-spec:
-  type: ClusterIP
-  ports:
-    - port: 9090
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    app.kubernetes.io/name: app1
-    app.kubernetes.io/instance: umbrella
----
-# Source: umbrella/charts/app2/templates/service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: umbrella-app2
-  labels:
-    helm.sh/chart: app2-0.1.0
-    app.kubernetes.io/name: app2
-    app.kubernetes.io/instance: umbrella
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-spec:
-  type: ClusterIP
-  ports:
-    - port: 9090
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    app.kubernetes.io/name: app2
-    app.kubernetes.io/instance: umbrella
+"err": {
+         "name": "UnsupportedProtocolError",
+         "message": "Unsupported protocol \"oci:\"",
 ```
