@@ -11,3 +11,16 @@ When I am trying to run renovate on app1, app2 helm charts, renovate fails with 
          "name": "UnsupportedProtocolError",
          "message": "Unsupported protocol \"oci:\"",
 ```
+
+Dependencies are defined as -
+
+```
+dependencies:
+- name: library
+  version: 0.1.0
+  repository: oci://ghcr.io/ankitabhopatkar13/library
+  import-values:
+    - defaults
+```
+
+Reference: https://helm.sh/docs/topics/registries/#specifying-dependencies
