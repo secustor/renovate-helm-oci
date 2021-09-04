@@ -25,7 +25,7 @@ appVersion: "1.16.0"
 
 dependencies:
 - name: library
-  version: 0.1.0
-  repository: oci://ghcr.io/ankitabhopatkar13/library
+  version: 9.6.0
+  repository: oci://postgres
   import-values:
     - defaults
