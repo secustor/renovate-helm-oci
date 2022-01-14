@@ -24,8 +24,8 @@ version: 0.1.0
 appVersion: "1.16.0"
 
 dependencies:
-- name: nginx
-  version: 1.19.0
-  repository: oci://quay.io/bitnami
+- name: renovate-test
+  version: 0.1.0
+  repository: oci://registry.gitlab.com/secustor/oci-helm-test
   import-values:
     - defaults
