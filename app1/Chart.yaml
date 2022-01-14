@@ -24,8 +24,12 @@ version: 0.1.0
 appVersion: "1.16.0"
 
 dependencies:
-- name: renovate-test
+- name: renovate-oci-test
   version: 0.1.0
   repository: oci://registry.gitlab.com/secustor/oci-helm-test
   import-values:
     - defaults
+- name: renovate-repo-test
+  version: 0.1.0
+  repository: https://gitlab.com/api/v4/projects/32840221/packages/helm/stable
+

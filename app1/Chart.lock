@@ -1,6 +1,6 @@
 dependencies:
-- name: library
-  repository: oci://ghcr.io/ankitabhopatkar13/library
+- name: renovate-test
+  repository: oci://registry.gitlab.com/secustor/oci-helm-test
   version: 0.1.0
-digest: sha256:33a5e9a93967f7b490549fd4d8072ff03a8df39618b828179937c902bb31325b
-generated: "2021-09-03T13:04:31.875775+02:00"
+digest: sha256:22966d815cc70fd9cfd0943e1bbf50e0f672359524f47858b7e549c663e68f0a
+generated: "2022-01-14T18:51:03.24460982+01:00"
