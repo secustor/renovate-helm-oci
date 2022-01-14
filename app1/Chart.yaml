@@ -29,7 +29,7 @@ dependencies:
   repository: oci://registry.gitlab.com/secustor/oci-helm-test
   import-values:
     - defaults
-- name: renovate-repo-test
+- name: repo-test
   version: 0.1.0
   repository: https://gitlab.com/api/v4/projects/32840221/packages/helm/stable
 
