@@ -26,6 +26,6 @@ appVersion: "1.16.0"
 dependencies:
 - name: nginx
   version: 1.19.0
-  repository: oci://quay.io/bitnami/nginx
+  repository: oci://quay.io/bitnami
   import-values:
     - defaults
