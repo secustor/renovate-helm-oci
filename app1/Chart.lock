@@ -2,5 +2,11 @@ dependencies:
 - name: renovate-test
   repository: oci://registry.gitlab.com/secustor/oci-helm-test
   version: 0.1.0
-digest: sha256:22966d815cc70fd9cfd0943e1bbf50e0f672359524f47858b7e549c663e68f0a
-generated: "2022-01-14T18:51:03.24460982+01:00"
+- name: repo-test
+  repository: https://gitlab.com/api/v4/projects/32840221/packages/helm/stable
+  version: 0.5.0
+- name: cert-manager
+  repository: https://charts.jetstack.io
+  version: v1.6.0
+digest: sha256:0b4edbb3d873372ffc9fcbeb4b1a1b23add29a6167e5839101aa07aee8ce8d55
+generated: "2022-01-31T20:59:31.77627788+01:00"
